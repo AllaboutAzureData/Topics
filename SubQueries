@@ -1,0 +1,8 @@
+-- Subquery in SELECT clause
+SELECT column1, (SELECT column2 FROM table2 WHERE condition) AS alias_name
+FROM table1;
+
+-- Subquery in WHERE clause
+SELECT column1
+FROM table1
+WHERE column2 IN (SELECT column2 FROM table2 WHERE condition);
