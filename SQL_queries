@@ -1,1 +1,8 @@
+To find the Highest Value : SELECT MAX(your_column) AS highest_value FROM your_table;
+To find the Min Value: SELECT MIN(column_name) AS min_value FROM table_name;
+To find the Top 3 values: SELECT your_column, other_column1, other_column2 FROM your_table ORDER BY your_column DESC LIMIT 3;
+To find the Min 3 values: SELECT your_column, other_column1, other_column2 FROM your_table ORDER BY your_column ASC LIMIT 3;
+
+
+
 
