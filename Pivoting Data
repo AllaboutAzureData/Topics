@@ -1,0 +1,17 @@
+-- Pivot using CASE statements
+SELECT 
+    category,
+    SUM(CASE WHEN condition1 THEN amount ELSE 0 END) AS amount1,
+    SUM(CASE WHEN condition2 THEN amount ELSE 0 END) AS amount2
+FROM table_name
+GROUP BY category;
+
+-- Pivot using dynamic SQL (example for SQL Server)
+DECLARE @sql NVARCHAR(MAX);
+SET @sql = N'SELECT category, ' +
+           STUFF((SELECT ', SUM(CASE WHEN condition = ''' + condition + ''' THEN amount ELSE 0 END) AS ' + QUOTENAME(condition)
+                  FROM table_name
+                  GROUP BY condition
+                  FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 2, '') +
+           ' FROM table_name GROUP BY category;';
+EXEC sp_executesql @sql;
