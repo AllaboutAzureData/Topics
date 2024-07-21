@@ -1,0 +1,11 @@
+-- Basic WHERE clause
+SELECT * FROM table_name WHERE condition;
+
+-- Using AND, OR, and NOT operators
+SELECT * FROM table_name WHERE condition1 AND condition2;
+SELECT * FROM table_name WHERE condition1 OR condition2;
+SELECT * FROM table_name WHERE NOT condition;
+
+-- Using IN and BETWEEN
+SELECT * FROM table_name WHERE column_name IN (value1, value2, value3);
+SELECT * FROM table_name WHERE column_name BETWEEN value1 AND value2;
