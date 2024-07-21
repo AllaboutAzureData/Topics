@@ -1,0 +1,5 @@
+-- Delete specific rows
+DELETE FROM table_name WHERE condition;
+
+-- Delete all rows (use with caution)
+DELETE FROM table_name;
