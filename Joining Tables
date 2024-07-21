@@ -17,3 +17,19 @@ RIGHT JOIN table2 b ON a.common_column = b.common_column;
 SELECT a.column1, b.column2
 FROM table1 a
 FULL OUTER JOIN table2 b ON a.common_column = b.common_column;
+
+-- Full outer join with conditional aggregation
+SELECT 
+    COALESCE(a.column1, b.column1) AS column1,
+    COUNT(a.column2) AS count_in_a,
+    COUNT(b.column2) AS count_in_b
+FROM table1 a
+FULL OUTER JOIN table2 b ON a.common_column = b.common_column
+GROUP BY COALESCE(a.column1, b.column1);
+
+-- Cross join with filter
+SELECT a.column1, b.column1
+FROM table1 a
+CROSS JOIN table2 b
+WHERE a.column2 = b.column2;
+
