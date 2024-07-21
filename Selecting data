@@ -1,0 +1,8 @@
+-- Select all columns from a table
+SELECT * FROM table_name;
+
+-- Select specific columns from a table
+SELECT column1, column2 FROM table_name;
+
+-- Select distinct values from a column
+SELECT DISTINCT column_name FROM table_name;
