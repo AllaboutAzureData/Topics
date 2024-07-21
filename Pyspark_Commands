@@ -1,0 +1,95 @@
+__1. Reading Data __
+from pyspark.sql import SparkSession
+
+# Initialize Spark Session
+spark = SparkSession.builder \
+    .appName("Example") \
+    .getOrCreate()
+
+# Reading a CSV file
+df = spark.read.csv("path/to/your/file.csv", header=True, inferSchema=True)
+
+# Reading a Parquet file
+df = spark.read.parquet("path/to/your/file.parquet")
+
+# Reading a JSON file
+df = spark.read.json("path/to/your/file.json")
+
+2. Removing Null Values
+# Removing rows with any null values
+df_cleaned = df.dropna()
+
+# Removing rows with null values in specific columns
+df_cleaned = df.dropna(subset=["column1", "column2"])
+
+# Filling null values with a specific value
+df_filled = df.fillna({"column1": 0, "column2": "unknown"})
+
+3. Combining Columns
+from pyspark.sql.functions import concat, col, lit
+
+# Concatenating columns with a separator
+df_combined = df.withColumn("combined_column", concat(col("column1"), lit(" "), col("column2")))
+
+4. Displaying Data
+# Show the DataFrame
+df.show()
+
+# Show the DataFrame with a specific number of rows
+df.show(10)
+
+5. Selecting Specific Columns
+# Selecting specific columns
+df_selected = df.select("column1", "column2")
+
+6. Writing Data
+# Writing DataFrame to a CSV file
+df.write.csv("path/to/save/file.csv", header=True)
+
+# Writing DataFrame to a Parquet file
+df.write.parquet("path/to/save/file.parquet")
+
+# Writing DataFrame to a JSON file
+df.write.json("path/to/save/file.json")
+
+7. Filtering Data
+# Filtering rows based on a condition
+df_filtered = df.filter(df["column1"] > 100)
+
+8. Grouping and Aggregating Data
+# Grouping and aggregating data
+df_grouped = df.groupBy("column1").agg({"column2": "sum"})
+
+9. Sorting Data
+# Sorting DataFrame by a column
+df_sorted = df.orderBy(df["column1"].asc())
+
+# Sorting DataFrame by multiple columns
+df_sorted = df.orderBy(df["column1"].asc(), df["column2"].desc())
+
+10. Adding New Columns
+from pyspark.sql.functions import expr
+
+# Adding a new column with a constant value
+df_new_col = df.withColumn("new_column", lit(10))
+
+# Adding a new column based on an expression
+df_new_col = df.withColumn("new_column", expr("column1 + column2"))
+
+11. Renaming Columns
+# Renaming a column
+df_renamed = df.withColumnRenamed("old_column_name", "new_column_name")
+
+12. Removing Duplicates
+# Removing duplicate rows
+df_deduped = df.dropDuplicates()
+
+# Removing duplicate rows based on specific columns
+df_deduped = df.dropDuplicates(["column1", "column2"])
+
+
+
+
+
+
+
