@@ -1,0 +1,8 @@
+-- Select rows where a related row exists in another table
+SELECT column1, column2
+FROM table_name a
+WHERE EXISTS (
+    SELECT 1
+    FROM another_table b
+    WHERE a.common_column = b.common_column
+);
