@@ -1,0 +1,13 @@
+-- Calculating moving averages
+SELECT 
+    column1, 
+    column2,
+    AVG(column2) OVER (ORDER BY column1 ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg
+FROM table_name;
+
+-- Ranking within partitions
+SELECT 
+    column1, 
+    column2,
+    RANK() OVER (PARTITION BY column1 ORDER BY column2 DESC) AS rank_within_partition
+FROM table_name;
