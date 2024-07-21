@@ -1,0 +1,5 @@
+-- Create an index
+CREATE INDEX index_name ON table_name (column_name);
+
+-- Drop an index
+DROP INDEX index_name ON table_name;
