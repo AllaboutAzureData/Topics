@@ -1,0 +1,18 @@
+-- Create a new table
+CREATE TABLE table_name (
+    column1 datatype constraints,
+    column2 datatype constraints,
+    ...
+);
+
+-- Add a new column
+ALTER TABLE table_name ADD column_name datatype;
+
+-- Modify a column
+ALTER TABLE table_name MODIFY column_name new_datatype;
+
+-- Drop a column
+ALTER TABLE table_name DROP COLUMN column_name;
+
+-- Drop a table
+DROP TABLE table_name;
