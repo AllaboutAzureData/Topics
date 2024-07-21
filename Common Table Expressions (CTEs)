@@ -1,0 +1,22 @@
+-- Using CTEs for recursive queries
+WITH RECURSIVE cte_name AS (
+    SELECT column1, column2
+    FROM table_name
+    WHERE condition
+    UNION ALL
+    SELECT column1, column2
+    FROM table_name, cte_name
+    WHERE join_condition
+)
+SELECT * FROM cte_name;
+
+-- CTEs for breaking down complex queries
+WITH cte1 AS (
+    SELECT column1, column2 FROM table1 WHERE condition
+),
+cte2 AS (
+    SELECT column1, column2 FROM table2 WHERE condition
+)
+SELECT cte1.column1, cte2.column2
+FROM cte1
+JOIN cte2 ON cte1.common_column = cte2.common_column;
