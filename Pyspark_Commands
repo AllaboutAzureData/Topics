@@ -1,4 +1,4 @@
-__1. Reading Data __
+**1. Reading Data **
 from pyspark.sql import SparkSession
 
 # Initialize Spark Session
