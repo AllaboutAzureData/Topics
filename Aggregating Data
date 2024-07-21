@@ -10,3 +10,15 @@ SELECT column_name, COUNT(*) FROM table_name GROUP BY column_name;
 
 -- Group by with HAVING clause
 SELECT column_name, COUNT(*) FROM table_name GROUP BY column_name HAVING COUNT(*) > 1;
+
+
+-- Aggregating with multiple groupings and conditions
+SELECT 
+    department,
+    COUNT(employee_id) AS total_employees,
+    SUM(CASE WHEN gender = 'M' THEN 1 ELSE 0 END) AS male_employees,
+    SUM(CASE WHEN gender = 'F' THEN 1 ELSE 0 END) AS female_employees,
+    AVG(salary) AS average_salary
+FROM employees
+GROUP BY department;
+
