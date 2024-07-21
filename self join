@@ -1,0 +1,4 @@
+-- Find pairs of rows that satisfy a certain condition
+SELECT a.column1, b.column1
+FROM table_name a, table_name b
+WHERE a.column2 = b.column2 AND a.column1 < b.column1;
