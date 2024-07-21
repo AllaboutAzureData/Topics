@@ -1,0 +1,12 @@
+-- Aggregate functions: COUNT, SUM, AVG, MAX, MIN
+SELECT COUNT(*) FROM table_name;
+SELECT SUM(column_name) FROM table_name;
+SELECT AVG(column_name) FROM table_name;
+SELECT MAX(column_name) FROM table_name;
+SELECT MIN(column_name) FROM table_name;
+
+-- Group by a column
+SELECT column_name, COUNT(*) FROM table_name GROUP BY column_name;
+
+-- Group by with HAVING clause
+SELECT column_name, COUNT(*) FROM table_name GROUP BY column_name HAVING COUNT(*) > 1;
