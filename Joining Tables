@@ -1,0 +1,19 @@
+-- Inner join
+SELECT a.column1, b.column2
+FROM table1 a
+INNER JOIN table2 b ON a.common_column = b.common_column;
+
+-- Left join
+SELECT a.column1, b.column2
+FROM table1 a
+LEFT JOIN table2 b ON a.common_column = b.common_column;
+
+-- Right join
+SELECT a.column1, b.column2
+FROM table1 a
+RIGHT JOIN table2 b ON a.common_column = b.common_column;
+
+-- Full outer join
+SELECT a.column1, b.column2
+FROM table1 a
+FULL OUTER JOIN table2 b ON a.common_column = b.common_column;
