@@ -5,4 +5,8 @@ To find the Min 3 values: SELECT your_column, other_column1, other_column2 FROM 
 
 
 
-
+write the SQL query to get the usernames before the @ in the email 
+------------------------------------------------------------------
+SELECT 
+SUBSTRING_INDEX(Email_Id, '@', 1) AS User_Name
+FROM Table;
